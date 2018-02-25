@@ -49,10 +49,10 @@ app.post('/register', user.signup);
 var apiRoutes = express.Router();
 
 // initialize apiRoutes so our full path is http://localhost:port/api
-app.use('/api', apiRoutes);
+// app.use('/api', apiRoutes);
 
 // login Route
-apiRoutes.post('/login', user.login);
+app.post('/login', user.login);
 
 
 // kick off the server
