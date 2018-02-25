@@ -29,7 +29,7 @@ export class AuthService {
   login(oUser) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post('api/login', JSON.stringify(oUser), options)
+    return this.http.post('login', JSON.stringify(oUser), options)
       .do((response: Response) => {
         if (response.json().success) {
           this.currentUser = <IUser>response.json().message;
