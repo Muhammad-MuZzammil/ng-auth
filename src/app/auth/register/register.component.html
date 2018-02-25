@@ -1,0 +1,70 @@
+<section id="register">
+  <div class="card">
+    <div class="card-body col-xl-4 col-lg-6 col-md-8 col-sm-12">
+      <h1 class="card-title">Sign Up</h1>
+
+
+
+      <form [formGroup]="registerForm" (ngSubmit)="register('registerForm.value')" novalidate autocomplete="off">
+        <div class="form-group" [ngClass]="{'has-error': registerForm.get('fullname').invalid && registerForm.get('fullname').dirty}">
+          <label for="fullname" class="sr-only">Full name </label>
+          <input type="text" autofocus class="form-control" [formControl]="fullname" id="fullname" placeholder="Full name">
+          <div class="text-danger" *ngIf="registerForm.get('fullname').errors && registerForm.get('fullname').touched ">
+            <small style="padding :4px 0 0;" *ngIf="registerForm.get('fullname').errors.required">Full name is required!</small>
+            <small style="padding :4px 0 0;" *ngIf="registerForm.get('fullname').errors.minlength">Full name should contains from 4 to 50 characters</small>
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error': registerForm.get('email').invalid && registerForm.get('email').dirty}">
+          <label for="email" class="sr-only">Email</label>
+          <input type="text" class="form-control" id="email" placeholder="Email Address" [formControl]="email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+          <div class="text-danger" *ngIf="registerForm.get('email').errors && registerForm.get('email').touched ">
+            <small style="padding :4px 0 0;" *ngIf="registerForm.get('email').errors.required">Email is required!</small>
+            <small class="col-sm-10" style="padding:4px 0 0;" *ngIf="registerForm.get('email').errors.pattern">
+              Please enter a valid email
+            </small>
+          </div>
+        </div>
+
+        <div formGroupName="passwordGroup" [ngClass]="{'has-error': registerForm.get('passwordGroup').errors }">
+
+          <div class="form-group" [ngClass]="{'has-error': registerForm.get('passwordGroup.password').invalid && registerForm.get('passwordGroup.password').dirty}">
+            <label for="password" class="sr-only">Password </label>
+            <input type="password" class="form-control" [formControl]="password" id="password" placeholder="Pasword">
+            <div class="text-danger" *ngIf="registerForm.get('passwordGroup.password').touched && registerForm.get('passwordGroup.password').errors">
+              <small style="padding:4px 0 0;" *ngIf="registerForm.get('passwordGroup.password').errors.required">
+                Password is required!
+              </small>
+              <small style="padding :4px 0 0;" *ngIf="registerForm.get('passwordGroup.password').errors.minlength ">Password should contains from 4 to 50 characters</small>
+
+            </div>
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error': registerForm.get('passwordGroup.confirmPassword').invalid && registerForm.get('passwordGroup.confirmPassword').dirty}">
+            <label for="confirmPassword" class="sr-only">Confirm Password </label>
+            <input type="password" class="form-control" [formControl]="confirmPassword" id="confirmPassword" placeholder="Confirm password">
+            <div class="text-danger" *ngIf="(registerForm.get('passwordGroup.confirmPassword').touched || registerForm.get('passwordGroup.confirmPassword').dirty) && (registerForm.get('passwordGroup.confirmPassword').errors || registerForm.get('passwordGroup').errors)">
+              <small class="col-sm-10" style="padding:4px 0 0" *ngIf="registerForm.get('passwordGroup.confirmPassword').errors?.required">
+                Please confirm your password
+              </small>
+              <small class="col-sm-10" style="padding:4px 0 0" *ngIf="registerForm.get('passwordGroup').errors?.mismatchedPassword">
+                Password do not match
+              </small>
+            </div>
+          </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-block btn-hero-success" [disabled]="registerForm.invalid">REGISTER</button>
+      </form>
+      <div class="links">
+        <small class="form-text">Already have an account?
+          <a [routerLink]="['/login']">
+            <strong>Sign in</strong>
+          </a>
+        </small>
+      </div>
+
+    </div>
+  </div>
+</section>

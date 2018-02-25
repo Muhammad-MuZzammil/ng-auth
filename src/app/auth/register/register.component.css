@@ -1,0 +1,62 @@
+.card{
+  background-color: #3D3780;
+  height: 33rem;
+  margin: 3rem;
+  border-radius: 10px;
+  font-family: 'Open Sans';
+}
+#register .card-body{
+margin: auto;
+}
+#register .card-title{
+font-size: 35px;
+color: #fff;
+text-align: center;
+margin-top:10px; 
+margin-bottom:30px; 
+}
+
+.form-control{
+  width: 100%;
+  font-size: 1rem;
+  line-height: 2;
+  color: #A1A1E5;
+  background-color: #37317A;
+  border: 2px solid #322d72;
+  border-radius: 7px;
+}
+.form-control:focus{
+
+  box-shadow: 0 0 0 0.2rem rgb(118, 89, 255);
+}
+.btn-hero-success{
+background-image: linear-gradient(90deg,#00d9bf,#00d977);
+  box-shadow: 0 3px 0 0 #00bb85, 0 2px 8px 0 #00d99b, 0 4px 10px 0 rgba(33,7,77,.5);
+  text-shadow: 0 1px 3px rgba(0,0,0,.3);
+  border: none;
+  line-height: calc(1.25rem + 4px);
+  color: #fff;
+  height: 3rem;
+  border-radius:8px;
+  margin-top: 25px; 
+  margin-bottom: 25px; 
+}
+.form-text{
+  color: #a1a1e5;
+  font-size: 87.5%;
+}
+.links{
+  text-align: center;
+  margin-top: 1.75rem;
+}
+.socials{
+  margin: 1.5rem 0 2.5rem;
+}
+.socials a{
+  font-size: 2rem;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+.form-text a{
+color: #a1a1e5;
+}

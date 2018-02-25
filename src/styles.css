@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body{
+  background-color: #2F296B;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../node_modules/open-sans-fontface/fonts/Semibold/OpenSans-Semibold.eot?v=1.1.0");
+  src: url("../node_modules/open-sans-fontface/fonts/Semibold/OpenSans-Semibold.eot?#iefix&v=1.1.0") format("embedded-opentype"), url("../node_modules/open-sans-fontface/fonts/Semibold/OpenSans-Semibold.woff?v=1.1.0") format("woff"), url("../node_modules/open-sans-fontface/fonts/Semibold/OpenSans-Semibold.ttf?v=1.1.0") format("truetype"), url("../node_modules/open-sans-fontface/fonts/Semibold/OpenSans-Semibold.svg?v=1.1.0#OpenSansSemibold") format("svg");
+}
+.pagecontainer {
+  padding: 50px 15px 0;
+}
+.page-header{
+  margin: auto;
+  text-align: center;
+}

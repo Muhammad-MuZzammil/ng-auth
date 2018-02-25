@@ -1,0 +1,45 @@
+<section id="login">
+  <div class="card">
+    <div class="card-body col-xl-4 col-lg-6 col-md-8 col-sm-12">
+      <h1 class="card-title">Sign In</h1>
+      <h6 class="card-subtitle ">Hello! Sign in with your username or email</h6>
+
+      <form [formGroup]="loginForm" (ngSubmit)="login('loginForm.value')" novalidate autocomplete="off">
+        <div class="form-group" [ngClass]="{'has-error': loginForm.get('email').invalid && loginForm.get('email').dirty}">
+          <label for="email" class="sr-only">Email</label>
+          <input type="text" autofocus class="form-control" id="email" placeholder="Email Address" [formControl]="email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+          <div class="text-danger" *ngIf="loginForm.get('email').errors && loginForm.get('email').touched ">
+            <small style="padding :4px 0 0;" *ngIf="loginForm.get('email').errors.required">Email is required!</small>
+            <small style="padding:4px 0 0;" *ngIf="loginForm.get('email').errors.pattern">
+              Please enter a valid email
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error': loginForm.get('password').invalid && loginForm.get('password').dirty}">
+          <label for="password" class="sr-only">password</label>
+          <input type="password" id="password" [formControl]="password" class="form-control" placeholder="Password">
+          <div class="text-danger" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+            <small style="padding :4px 0 0;">Password is required!</small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-block btn-hero-success" [disabled]="loginForm.invalid">SIGN IN</button>
+      </form>
+      <div class="links">
+        <small class="form-text">Or connect with:</small>
+        <div class="socials">
+          <a class="section-github" target="blank" href="https://github.com"></a>
+          <a class="section-facebook" target="blank" href="https://facebook.com"></a>
+          <a class="section-twitter" target="blank" href="https://twitter.com"></a>
+        </div>
+        <small class="form-text">Don't have an account?
+          <a [routerLink]="['/register']">
+            <strong>Sign Up</strong>
+          </a>
+        </small>
+      </div>
+
+    </div>
+  </div>
+</section>
